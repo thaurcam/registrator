@@ -7,7 +7,7 @@ name: CI to GitHub Container Registry
 on:
   push:
     branches: [ master, release ]
-  pull_requests:
+  pull_request:
     branches: [ master, release ]
 
   # Allows you to run this workflow manually from the Actions tab
