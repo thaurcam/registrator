@@ -1,4 +1,4 @@
-FROM golang:1.17.2-alpine3.14 AS builder
+FROM golang:1.9.4-alpine3.7 AS builder
 WORKDIR /go/src/github.com/gliderlabs/registrator/
 COPY . .
 RUN \
