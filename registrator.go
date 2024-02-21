@@ -12,7 +12,7 @@ import (
 
 	dockerapi "github.com/fsouza/go-dockerclient"
 	"github.com/gliderlabs/pkg/usage"
-	"github.com/gliderlabs/registrator/bridge"
+	"github.com/thaurcam/registrator/bridge"
 )
 
 var Version string
@@ -176,9 +176,11 @@ func main() {
 
 	// Process Docker events
 	for msg := range events {
-		log.Printf("Message status (%v)", msg.Status)
+		//log.Printf("Message status (%v)", msg.Status)
 		switch msg.Status {
 		case "start":
+			go b.Add(msg.ID)
+		case "init":
 			go b.Add(msg.ID)
 		case "die":
 			go b.RemoveOnExit(msg.ID)
